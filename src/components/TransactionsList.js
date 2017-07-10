@@ -1,6 +1,18 @@
 import React from 'react'
+import Transaction from './Transaction'
 
-const TransactionsList = () => {
+const TransactionsList = (props) => {
+	var transactions = null
+
+	if (!props.searchTerm ) {
+	 	transactions = props.transactions.map( transaction => <Transaction {...transaction} />)
+	} else {
+		// var splitTerm = props.searchTerm.split('')
+		// transactions = props.transactions.map( transaction  => {
+		// 	if (transaction.category.split('')[index] === splitTerm[index] || transaction.description.split('') === splitTerm) {
+		// 		<Transaction {...transaction} />
+		// 	}
+		}
 
   return (
     <table className="ui celled striped padded table">
@@ -28,7 +40,7 @@ const TransactionsList = () => {
           </th>
         </tr>
 
-        {"... your code here..."}
+				{transactions}
 
       </tbody>
     </table>
